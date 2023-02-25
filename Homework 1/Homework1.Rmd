@@ -1,0 +1,39 @@
+--matriz 5x5 numeros decimales random
+```{r}
+num <- sample(160:200, 25, replace=F)
+num <- runif (25,160.000,200.000)
+matriz <- matrix(num,ncol=5)
+```
+
+
+--asignar meses a columans
+```{r}
+colnames(matriz)<- c("Enero","Febrero","Marzo","Abril","Mayo")
+```
+
+
+--asignar nombres random a filas
+```{r}
+name<- c("CARLOS","PATY","ALEJANDRO","LUISA","ROGELIO","ANDREA","FABIOLA","SAUL","GUSTAVO","PEDRO","JUAN","LIGIA","CHRISTIAN","WALTER","JOSE","OSCAR","PEDRO","ELMER","ALEXANDER")
+
+name_random <- sample(name, 5, replace = FALSE)
+rownames(matriz)<-name_random
+```
+
+
+--promedio de filas y columnas e imprimirlo en matriz
+```{r}
+fila_promedio<-rowMeans(matriz)
+
+matriz_final <- cbind (matriz, fila_promedio)
+
+columna_promedio<-colMeans(matriz_final)
+
+matriz_resultante <- rbind (matriz_final,columna_promedio)
+```
+
+--impresion de matriz resultante
+```{r}
+matriz_resultante
+```
+

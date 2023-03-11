@@ -1,0 +1,6 @@
+"0","vapply(tabla, multiplicar, character(1))
+"
+"2","Error in vapply(tabla, multiplicar, character(1)) : 
+  values must be type 'character',
+ but FUN(X[[1]]) result is type 'double'
+"

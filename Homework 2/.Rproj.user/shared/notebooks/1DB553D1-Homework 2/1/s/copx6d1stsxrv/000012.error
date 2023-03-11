@@ -1,0 +1,1 @@
+{"frames":[{"func":"vapply(tabla, multiplicar, character(1))","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in vapply(tabla, multiplicar, character(1)) : \n  values must be type 'character',\n but FUN(X[[1]]) result is type 'double'\n"}

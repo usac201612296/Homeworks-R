@@ -1,0 +1,96 @@
+AURA ANDREA MOREJON SILIEZAR
+
+# HOMEWORK 2
+
+## FUNCIONES EN R
+
+### ESTRUCTURA DE UNA FUNCION
+
+Una funcion se define como un conjunto de instrucciones que convierten las entradas en resultados deseados, cumpliendo con una estructura especifica para llevar a cabo las funciones, esta estructura es:
+
+1.  **Imput o Argumentos :** consiste en la informacion necesaria para que el procedimiento a realizar en la funcion sea efectuado. estas entradas pueden ser vacios a la espera de ser ingresados o pueden tener valores por defecto, una funcion puede tener o no argumentos de entrada.
+
+2.  **Cuerpo:** donde estan definidas las instrucciones que transforman las entradas en las salidas deseadas, estas instrucciones deben estar inmersas en { }
+
+3.  **Output o Salida:** resultados de la funcion o salidas obtenidas de los procedimientos realizados.
+
+### EJEMPLO DE FUNciÓN
+
+para encontra el punto medio entre dos numeros e imprimirlos
+
+```{r}
+midi<- function(a,b){
+  midi <- (a+b)/2
+  
+  cat ("El valor medio entre", a , "y",b, "es",midi)
+}
+
+
+
+midi(98,50)
+```
+
+### ARGUMENTOS DE UNA FUNCIÓN
+
+Los argumentos de una funcion son valores **Opcionales** que se pasan a la funcion, de modo que las variables dentro del cuerpo de la funcion tomen sus valores.
+
+ejemplo de estructura:
+
+area= funtion **(lado1,lado2)**
+
+{ area\<- lado1\*lado2 return(area) }
+
+area**(2,3)**
+
+### ARGUMENTOS POR VALOR
+
+Los argumentos por valor, especifican la variable la cual el valor lo sustituira.
+
+ejemplo de estructura:
+
+area= funtion **(lado1,lado2)**
+
+{ area\<- lado1\*lado2 return(area) }
+
+area**(lado1=2,lado2=3)**
+
+## FAMILIA ***apply***
+
+### ***lapply***
+
+Esta funcion es util para realizar operaciones en objetos de lista y devuelve un objeto de lista de la misma longitud que el conjunto original.
+
+```{r}
+tabla =sample(1:100,9)
+
+multiplicar <- function (x){
+  
+  return (x*5)
+}
+
+lapply(tabla,multiplicar)
+```
+
+### ***Sapply***
+
+Da como salida un vector o matriz, tomando la lista y el vector o marco como entrada.
+
+```{r}
+sapply(tabla,multiplicar)
+```
+
+### ***sapply***
+
+Es util cuando se sabe que tipo de datos se espera aplicar en una funcion. ayuda a evitar errores silenciosos.
+
+***EJEMPLO CON VALOR ESPERADO***
+
+```{r}
+vapply(tabla, multiplicar,numeric(1))
+```
+
+***EJEMPLO CON VALOR NO ESPERADO***
+
+```{r}
+vapply(tabla, multiplicar, character(1))
+```

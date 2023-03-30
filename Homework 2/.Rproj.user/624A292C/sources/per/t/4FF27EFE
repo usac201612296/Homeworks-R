@@ -3,7 +3,7 @@
     "path": "~/GitHub/Homeworks-R/Homework 2/Homework 2.Rmd",
     "project_path": "Homework 2.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "3073942129",
     "contents": "",
     "dirty": false,
     "created": 1678427032139.0,
@@ -14,11 +14,11 @@
         "chunk_output_type": "inline",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "1,0",
-        "scrollLine": "0",
-        "rmdVisualMode": "false",
+        "cursorPosition": "27,0",
+        "scrollLine": "39",
+        "rmdVisualMode": "true",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "2122:2503",
+        "rmdVisualModeLocation": "1307:835",
         "rmdVisualWrapConfigured": "true",
         "docOutlineVisible": "1"
     },
@@ -27,7 +27,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1678513483880,
+    "last_content_update": 1678513937154,
     "read_only": false,
     "read_only_alternatives": []
 }

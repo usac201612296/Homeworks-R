@@ -1,6 +1,45 @@
-**Homework 3**
+**Homework 3** Leer archivo csv
 
 ```{r}
-dataset_results <- read.csv("mi_archivo.csv")
+dataset_results <- read.csv("primary_results.csv", header = TRUE,
+                         sep = ",",
+                         stringsAsFactors = FALSE)
+dataset_results
+```
+
+1.  **Filtrar todos los votos del estado de Florida**
+
+```{r}
+filter_florida <- dplyr::filter(dataset_results, state == "Florida"| state_abbreviation =="FL")
+filter_florida
+```
+
+2.  **Utilice operadores lógicos (& and \|), según corresponda**
+
+2.1 **Filtrar votos para los candidatos Hillary Clinton o Donald Trump**
+
+```{r}
+
+filter_HoD <- dplyr::filter(dataset_results[6:7], candidate  %in% c("Hillary Clinton","Donald Trump"))
+filter_HoD
+```
+
+
+2.2 **Filtrar votos para el partido Demócrata y el condado Shelby**
+
+
+```{r}
+filter_demoyshelby <- dplyr::filter(dataset_results, party =="Democrat" & county =="Shelby")
+filter_demoyshelby
+```
+
+
+
+2.3  **Filtrar votos para el estado de Alabama y que la cantidad de votos sea mayor a 15000.**
+
+
+```{r}
+filter_alabamavotes <- dplyr::filter(dataset_results, state =="Alabama" & votes>15000)
+filter_alabamavotes
 ```
 

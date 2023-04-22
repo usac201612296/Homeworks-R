@@ -125,4 +125,5 @@ cut_premium <- diamonds %>%
   summarise(minPrice=min(price), maxPrice=max(price))
 
 cut_premium
+
 ```

@@ -1,37 +1,100 @@
-AURA ANDREA MOREJON SILIEZAR
---TAREA 4 POSTGRADO--
+**AURA ANDREA MOREJON SILIEZAR**
 
-**1. Dispersión**
-1.1. Construya un gráfico de dispersión colocando en la estética carat (eje x) versus
-price (eje y), luego devuelva el gráfico.
-1.2. Edite la estética y mapee el color con la variable clarity.
-1.3. Devuelva el gráfico con esta modificación.
+**--TAREA 4 POSTGRADO--**
+
+```{r}
+
+diamonds <- read.csv("diamonds.csv", header = TRUE,
+                         sep = ",",
+                         stringsAsFactors = FALSE)
+str(diamonds)
+```
+
+**1. Dispersión** 1.1. Construya un gráfico de dispersión colocando en la estética carat (eje x) versus price (eje y), luego devuelva el gráfico. 1.2. Edite la estética y mapee el color con la variable clarity. 1.3. Devuelva el gráfico con esta modificación.
+
+```{r}
+library(ggplot2)
+
+grafico <- ggplot(diamonds, aes(x=carat, y= price))+
+  geom_point()
+grafico
+
+grafico2 <- ggplot(diamonds, aes(x=carat, y= price, color = clarity))+
+  geom_point()+
+  labs(  title= "DIAMONDS",x="Quilate", y = "Precio")+
+  theme_minimal()
+grafico2
+
+```
+
+**2. Histograma** 2.1. Construya el tipo de geometría histograma para la variable price. Configure el parámetro bins con el valor 40 y devuelva el gráfico. 2.2. Agregue una escala logarítmica de base 10 y devuelva el gráfico para ver la diferencia.
+
+```{r}
+
+ggplot(diamonds, aes(x=price))+
+  geom_histogram(bins=40)
+
+ggplot(diamonds, aes(x=price))+
+  geom_histogram(bins=40)+
+  scale_y_continuous (trans = 'log10') +
+  scale_x_continuous (trans = 'log10')
+  
+
+```
+
+**3. Boxplots** 3.1. Construya un gráfico de cajas colocando en la estética la variable cut (eje x) versus price (eje y). Agregue una escala logarítmica por defecto y por último devuelva el gráfico. 3.2. Edite el color de cada caja con el parámetro fill dentro de la estética y asignando la variable cut. Por último devuelva el gráfico.
+
+```{r}
+ggplot(diamonds, aes(x=cut, y=price))+
+  geom_boxplot()+
+  coord_trans (y = 'log10' , x = 'log10')
 
 
+ggplot(diamonds, aes(x=cut, y=price, fill = cut))+
+  geom_boxplot()+
+  coord_trans (y = 'log10' , x ='log10')
 
 
-
-
-
-
-
-**2. Histograma**
-2.1. Construya el tipo de geometría histograma para la variable price. Configure el
-parámetro bins con el valor 40 y devuelva el gráfico.
-2.2. Agregue una escala logarítmica de base 10 y devuelva el gráfico para ver la
-diferencia.
-
-**3. Boxplots**
-3.1. Construya un gráfico de cajas colocando en la estética la variable cut (eje x)
-versus price (eje y). Agregue una escala logarítmica por defecto y por último
-devuelva el gráfico.
-3.2. Edite el color de cada caja con el parámetro fill dentro de la estética y asignando
-la variable cut. Por último devuelva el gráfico.
+```
 
 **4. Faceting**
-4.1. Filtre diamonds por la variable price que sea mayor a 1000 y por cut que
-contenga las categorías Good, Ideal y Premium. Luego asigne el resultado a la
-variable filtered_price. Dado que cut debe tomar en cuenta tres categorías
-específicas puede hacer uso del pipe %in% , a continuación un ejemplo de su
-uso:
+
+4.1. Filtre diamonds por la variable price que sea mayor a 1000 y por cut que contenga las categorías Good, Ideal y Premium. Luego asigne el resultado a la variable filtered_price. Dado que cut debe tomar en cuenta tres categorías específicas puede hacer uso del pipe %in% , a continuación un ejemplo de su uso:
+
+filter (var %in% c (\"value1\", \"value2\", \"value3\") )
+
+4.2. Utilice la variable filtered_price para construir un gráfico de barras, en la estética
+configure x = cut, y = depth.
+
+4.3. Por último aplique faceting para la variable clarity y devuelva la parcela de
+gráficos.
+
+4.4. Edite la estética y configure el parámetro fill con la variable clarity. Luego
+devuelva la parcela de gráficos con esta modificación.
+
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+filtered_price<- diamonds %>%
+  filter(price >= 1000)%>%
+  filter(cut %in% c("Ideal","Good","Premium"))
+filtered_price
+
+
+ggplot(filtered_price, aes(x=cut, y=depth))+
+  geom_bar(stat="identity", position="stack")+
+  labs(  title= "GRAFICO DE BARRAS",x="Caracteristica", y = "Valor")
+
+
+
+
+  
+ 
+
+```
+
+
+
 

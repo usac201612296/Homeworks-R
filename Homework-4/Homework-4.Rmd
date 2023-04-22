@@ -88,6 +88,20 @@ ggplot(filtered_price, aes(x=cut, y=depth))+
   labs(  title= "GRAFICO DE BARRAS",x="Caracteristica", y = "Valor")
 
 
+ggplot(filtered_price, aes(x=cut, y=depth))+
+  geom_bar(stat="identity", position="stack")+
+  labs(  title= "GRAFICO DE BARRAS",x="Caracteristica", y = "Valor")+
+  facet_wrap(~clarity)
+
+
+ggplot(filtered_price, aes(x=cut, y=depth))+
+  geom_bar(stat="identity", position="stack")+
+  labs(  title= "GRAFICO DE BARRAS",x="Caracteristica", y = "Valor")+
+  facet_wrap(~clarity)+
+  labs(title = "Grafica profundidad vs corte") +aes(fill=clarity) + 
+  ylab("Profundidades")+
+  xlab("Cortes")
+
 
 
   
@@ -96,5 +110,20 @@ ggplot(filtered_price, aes(x=cut, y=depth))+
 ```
 
 
+```{r}
+median_dimension_diamond <- diamonds %>% 
+  group_by(cut) %>%
+  summarise(mediaX = median(x), mediaY = median(y) ,mediaZ = median(z))
+
+median_dimension_diamond
+
+
+cut_premium <- diamonds %>%
+  filter( cut == "Premium") %>%
+  group_by(clarity) %>%
+  summarise(minPrice=min(price), maxPrice=max(price))
+
+cut_premium
+```
 
 

@@ -61,17 +61,13 @@ ggplot(diamonds, aes(x=cut, y=price, fill = cut))+
 
 4.1. Filtre diamonds por la variable price que sea mayor a 1000 y por cut que contenga las categorías Good, Ideal y Premium. Luego asigne el resultado a la variable filtered_price. Dado que cut debe tomar en cuenta tres categorías específicas puede hacer uso del pipe %in% , a continuación un ejemplo de su uso:
 
-filter (var %in% c (\"value1\", \"value2\", \"value3\") )
+filter (var %in% c ("value1", "value2", "value3") )
 
-4.2. Utilice la variable filtered_price para construir un gráfico de barras, en la estética
-configure x = cut, y = depth.
+4.2. Utilice la variable filtered_price para construir un gráfico de barras, en la estética configure x = cut, y = depth.
 
-4.3. Por último aplique faceting para la variable clarity y devuelva la parcela de
-gráficos.
+4.3. Por último aplique faceting para la variable clarity y devuelva la parcela de gráficos.
 
-4.4. Edite la estética y configure el parámetro fill con la variable clarity. Luego
-devuelva la parcela de gráficos con esta modificación.
-
+4.4. Edite la estética y configure el parámetro fill con la variable clarity. Luego devuelva la parcela de gráficos con esta modificación.
 
 ```{r}
 library(dplyr)
@@ -109,6 +105,11 @@ ggplot(filtered_price, aes(x=cut, y=depth))+
 
 ```
 
+**Grouping and summarizing**
+
+1.  Utilice diamonds para construir un agrupamiento por la variable cut, luego aplique summarize para encontrar la media de las variables x, y, z (los nombres de los valores sumarizados serán mediaX, mediaY, mediaZ, respectivamente). Asigne el resultado a la variable median_dimension_diamond, por último imprima la variable.
+2.  Utilice diamonds para filtrar por la variable cut igual a Premium. Luego agrupe por la variable clarity y utilice summarize para encontrar minimo y maximo de price (los nombres de los valores sumarizados serán minPrice y maxPrice, respectivamente). Asigne el resultado a la variable cut_premium e imprima el valor de la variable.
+3.  Construya un gráfico de barras y utilice cut_premium como set de datos, configure x=clarity, y=maxPrice y
 
 ```{r}
 median_dimension_diamond <- diamonds %>% 
@@ -125,5 +126,3 @@ cut_premium <- diamonds %>%
 
 cut_premium
 ```
-
-

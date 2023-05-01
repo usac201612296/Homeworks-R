@@ -12,6 +12,7 @@ Utilice left_joins en este ejercicio para asegurarse de mantener todas las pregu
 
 1.4. Por último, almacene el resultado en la variable questions_with_tags.
 
+
 ```{r}
 questions <- read.csv("questions.csv", header = TRUE,
                          sep = ",",
